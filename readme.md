@@ -1,0 +1,1 @@
+This is a platform where developers can connect to each other make new projects, make new friends, connections etc.
