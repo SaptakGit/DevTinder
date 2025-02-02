@@ -1,0 +1,79 @@
+SDLC => Software Development Life Cycle
+
+Waterfall Model
+
+    Requirements: Done by Product/Project Manager with Designer for mock
+      ^  |
+      |  ---> Design Architecture: Done by Senior Engineer/ Engineer Manager/ Tech Lead
+      |          |                   Design the Architecture. what tech stack, High Level Design(HLD),  Low Level Design(LLD),
+      |          |                   Monolith, Microservice.
+      |          |
+      |          |
+      |          ----> Development: SD1, SDE2, Intern
+      |                    |
+      |                    |
+      |                    ----> Testing: SDET
+      |                             |
+      |                             |
+      ^                             -----> Deployment: Seniour Developer/DevOps
+      |                                       |
+      |                                       |
+      |                                       ---> Maintainance:
+      |                                              |
+      |                                              |
+      |__<_____Back to Requirements__________<________V
+                                             
+
+----------------------------------------------------------------------------------------------------------------
+                |                  Monolith                 |                    Microservice
+----------------|-------------------------------------------|---------------------------------------------------
+Dev Speed:      |  Slower                                   |  Fast
+----------------|-------------------------------------------|---------------------------------------------------          
+Code Repo:      |  Single Code Repo                         |  Multiple Code Repo
+----------------|-------------------------------------------|---------------------------------------------------       
+Scalability:    |  No probloem for cmall Code but for large |  Easy to maintain Large codebase
+                |  code base it is a huge problem.          |  
+----------------|-------------------------------------------|---------------------------------------------------
+Deployment:     |  Single Deployment. But for every small   |  Multiple Deployment for each project.    
+                |  change the whole project have to deploy. |  Specific project deployed for
+                |                                           |  specific change.But chance of mismatch 
+                |                                           |  if all the projects version not updated
+----------------|-------------------------------------------|---------------------------------------------------
+Tech Stack:     |  Restricted Tech Stack                    |  Individual Tech Stack
+----------------|-------------------------------------------|---------------------------------------------------
+Infra Cost:     |  Lower                                    |  Higher
+----------------|-------------------------------------------|---------------------------------------------------
+Complexity:     |  small project-> Easy                     |  small project-> Hard
+                |  large project-> Hard                     |  large project-> Easy
+----------------|-------------------------------------------|---------------------------------------------------
+Fault Isolation:|  If fault happen the whole project        |  If fault happen only the Microservice will
+                |  will be down                             |  be down
+----------------|-------------------------------------------|---------------------------------------------------
+Testing:        |  Easy in Monolith                         |  Hard as there are different Microservice running.
+----------------|-------------------------------------------|---------------------------------------------------   
+Ownership:      |  Central Ownership                        |  Separate Ownership for each Microservice
+----------------|-------------------------------------------|---------------------------------------------------
+Maintainance:   |  Hard                                     |  Easy
+----------------|-------------------------------------------|---------------------------------------------------
+Rewamps:        |  Hard                                     |  Easy
+----------------|-------------------------------------------|---------------------------------------------------
+Debugging:      |  Slightly Easy                            |  Can be hard, blame game can happen
+----------------|-------------------------------------------|---------------------------------------------------
+Dev Experience: |  Personal Openion                         |  Personal Openion
+----------------|-------------------------------------------|---------------------------------------------------
+
+
+NamsteDev.com
+  4 Microservice
+  Frontend ->  Student-web : Next.js
+               Admin-web : React.js
+               Student-app : React Native
+  Backend  -> Node.js
+
+
+DevTinder: 
+    2 Microservice
+    Frontend : React
+    Backend : NodeJs
+  
+

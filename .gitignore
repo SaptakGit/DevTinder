@@ -1,0 +1,8 @@
+/node_modules
+/dist
+.parcel-cache
+*.zip
+*.tar.gz
+*.iso
+/git_exclude
+/coverage
