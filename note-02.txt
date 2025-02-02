@@ -1,0 +1,76 @@
+DevTinder SDLC
+    Requirements Gathering:
+        1) Create an account/ Sign up
+        2) Log in
+        3) Update/Create Your Profile
+        4) Feed Page -> Explore other people
+        5) Send Connection Request.
+        6) See our Matches
+        7) See the Request we have sent/ receive
+        8) Update your Profile
+
+    Tech-Planning/Architecture:
+        HLD:
+            2 Micreservices
+                Frontend:
+                    1) React
+                Backend:
+                    1) NodeJS
+                    2) MongoDB 
+
+        LLD:
+            DB Design:
+                Collection
+                    -> User
+                        -> Firstname
+                        -> Lastname
+                        -> EmailId
+                        -> Password
+                        -> Age, Gender
+                    -> ConnectionRequest
+                        -> From UsesrId
+                        -> To UsesrId
+                        -> Status = Pending/ Ignored/ Accepted/ Rejected
+
+            API Design 
+                {Rest API} HTTP Methods:
+                    GET -> Get the Data from the Database
+                    POST -> Push the Data from the Database
+                    PUT -> Update the Data from the Database
+                    PATCH -> Update the Data from the Database
+                    DELETE -> Delete the Data from the Database
+
+                POST   --> /signup
+                POST   --> /login
+                GET    --> /profile
+                POST   --> /profile
+                PATCH  --> /profile
+                DELETE --> /profile         |----> interested
+                POST   --> /sendRequest ----|
+                                            |----> ignored  
+                                              |----> accept
+                POST   --> /reviewRequest ----|
+                                              |----> reject
+                GET    --> /requests
+                GET    --> /connections
+
+
+                *** API:
+                    API stands for Application Programming Interface. It's a software interface that connects computer programs or computers. 
+                    APIs are used to provide services to other software programs. 
+
+                *** REST API:
+                    A REST API (also called a RESTful API or RESTful web API) is an application programming interface (API) that 
+                    conforms to the design principles of the Representational State Transfer (REST) architectural style.
+
+                *** SOAP API:
+                    SOAP API (Simple Object Access Protocol) is a messaging protocol that allows applications to communicate with each 
+                    other. It uses XML (Extensible Markup Language) data to send requests and responses. 
+
+                *** Difference between Put & Patch ?
+                    PUT and PATCH are HTTP methods used to update resources. PUT is used to replace an entire resource, 
+                    while PATCH is used to update only part of a resource. 
+
+                
+
+                    
