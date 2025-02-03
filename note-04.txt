@@ -4,3 +4,26 @@ Install Postman
     -> create Collections
 
 app.use => This will match all the HTTP method API calls
+
+Advanced Routing:
+        app.get("/ab?c") => ? Makes it optional. It will work for /ac and /abc both
+        app.get("/ab+c") => + Makes it allow multiple 'b'. 
+                            It will work for /ac and /abbbbbbc both
+        app.get("/ab*cd") => * Makes it allow anythig in between optional. 
+                            It will work for /abcd and /ab'ANYTHING IN BETWEEN'cd both
+        app.get("/a(bc)?d") => () Makes it group optional. It will work for /ac and /abcd both
+        app.get("/a(bc)+cd") => + Makes it allow multiple 'b'. 
+                            It will work for /ac and /abcbcbcd both
+        Regex Also work:
+            app.get("/a/") => If any 'a' comes on the url it will work.
+            app.get("/.*fly$/") => If  that starts with anythig and ends with 'fly' it will work.
+
+        http://localhost:7777/user?userId=101&password=test =>
+            console.log(req.query);
+        http://localhost:7777/user/101 =>
+            app.get("/user/:userId/:name/:password"), (req, res) => {
+                console.log(req.params);
+                res.send({"firstname": "Saptak", "lastname" : "Das"})
+            });
+
+        
