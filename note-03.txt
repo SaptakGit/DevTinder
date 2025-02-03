@@ -1,0 +1,26 @@
+varsion:
+    express -> 4.19.2
+                4  -> Major Verion: Breaking change.It is not safe to  
+                                    update any project that are running 
+                                    on 4.x.x .
+                19 -> Minor Verion: Extra feature and Backward Compatable.
+                                    It is safe to update any project that 
+                                    are running on 4.x.x .
+                2  -> Patch Verion: Bug fix/ Small change.It is safe to  
+                                    update any project that are running 
+                                    on 4.x.x .
+
+                ^ -> autometically updte to any version 4.x.x (4.19.2 to < 5.0.0)
+                ~ -> autometically updte to any version 4.19.x (4.19.2 to < 4.20.0)
+
+create backend folder
+npm init -> create package.json
+add /backend/node_modules to .gitignore
+install express -> npm i express
+install nodemon -> npm install -g nodemon
+change running script in package.json
+    -> "start" : "node src/app.js"
+    -> "dev" : "nodemon src/app.js"
+    npm run start
+    npm run dev
+Create first server on express
