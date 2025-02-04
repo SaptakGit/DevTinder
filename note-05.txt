@@ -1,0 +1,66 @@
+One route can have multiple route handler.
+app.use("/user", 
+        (req, res) => {
+            res.send("Response 1");
+        },
+       (req, res) => {
+            res.send("Response 2");
+       }
+)
+
+*** if response is not sended (res.send()) it will be keep waiting for response.
+
+next() => It calls the 2nd route handler if response is not send from the 1st
+          route
+            (req, res, next) => {
+                // res.send("Response 1");
+                next();
+            } => calls 2nd route handler
+
+            (req, res, next) => {
+                res.send("Response 1");
+                next();
+            } => send response & next will not called
+
+            (req, res, next) => { 
+                next(); 
+                res.send("Response 1");
+            } => calls the next handler, will come back here and throws an error
+                 as response is already sent from the 2nd handler.   
+
+            *** details about next();
+
+we can write route handler as array also
+    app.use("/route", rH, rH2, rH3, rH4, rH5)    *** rH => route handler
+    app.use("/route", [rH, rH2, rH3, rH4, rH5])
+    app.use("/route", [rH, rH2], rH3, rH4, rH5)
+    app.use("/route", rH, [rH2], rH3, rH4, rH5)
+
+Middleware => The handler which does not send the response back is known as Middleware.
+              The handler waich sends the response is know as request handler.
+              Generally Middleware are use 'app.use' or 'app.all'
+              Diff between 'app.use' & 'app.all'
+              
+              // Handle Auth Middleware for all GET POST ... Requests
+              app.use("/admin/ge", (req, res, next) => {
+                console.log("Admin Atuh Middle Checked")
+                const token = "xyz";
+                const isAdminAuthorised = token === "xyz"
+                if(!isAdminAuthorised){
+                    res.send("Unauthorised Requests")
+                } else{
+                    next()
+                }
+              })
+
+              app.get("/user", (req, res) => {
+                res.send("User Data Sent")
+              }) => Middleware NOT Checked 
+
+              app.get("/admin/getAllUser", (req, res) => {
+                res.send("All Data Sent")
+              }) => Middleware Checked
+
+              app.get("/admin/deleteUser", (req, res) => {
+                res.send("User Deleted")
+              }) => Middleware Checked
