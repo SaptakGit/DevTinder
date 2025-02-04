@@ -64,3 +64,14 @@ Middleware => The handler which does not send the response back is known as Midd
               app.get("/admin/deleteUser", (req, res) => {
                 res.send("User Deleted")
               }) => Middleware Checked
+
+Error Handling:
+    1)  try{}
+        catch(e){}
+
+    2)  Wildcard Error Handling:
+            app.use("/", (err, req, res, next) => {
+                if(err){
+                    res.status(500).send("Something Went Wrong");
+                }
+            })
