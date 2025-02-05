@@ -1,0 +1,4 @@
+mongoose:
+    npm i mongoose
+
+call app.listen only after sucessfull database connection.
