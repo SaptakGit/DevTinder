@@ -1,4 +1,12 @@
-mongoose:
+mongoose: (https://mongoosejs.com/docs/guide.html)
     npm i mongoose
+    connect with the database usig connection string
+    "Connection-url"/devTinder
 
 call app.listen only after sucessfull database connection.
+
+create model folder
+creating schema using new mongoose.Schema inside model.
+create a POST Api to create user data using User Model.
+
+__v in a mongoDb document ?
