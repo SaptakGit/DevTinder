@@ -1,2 +1,10 @@
 Differance between JS Object and JSON
 express.json() middleware for converting incoming API JSON data to JS Objects
+
+User.findOne({emailId : req.body.emailId}) // find the one users with the emailId(most probaly first document)
+
+User.findOne({}) //conditions is optional, and if conditions is null or undefined, mongoose will send an empty findOne command to MongoDB, which will return an arbitrary document. If you're querying by _id, use findById() instead.
+
+User.find({emailId : req.body.emailId}) // find all the users with this email
+
+User.find({}) // find all the users with this email

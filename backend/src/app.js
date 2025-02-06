@@ -5,7 +5,7 @@ const User = require("./models/user");
 
 app.use(express.json()); // middleware for converting incoming JSON data to JS Object
 
-
+// Sign up API
 app.post("/signup", async (req,res) => {
     //console.log(req.body);
     const user = new User(req.body);
@@ -18,6 +18,39 @@ app.post("/signup", async (req,res) => {
     }
 });
 
+// find One user
+app.get("/user", async (req, res) =>{
+    try{
+        /*const users = await User.find({emailId : req.body.emailId});
+        if(users.length === 0){
+            res.send("User not found");
+        } else{
+            res.send(users);
+        }*/
+        const user = await User.findOne({emailId : req.body.emailId});
+        if(!user){
+            res.send("User not found");
+        } else{
+            res.send(user);
+        }
+    } catch(err){
+        res.send("Something went wrong");
+    }
+});
+
+// Feed API - GET /feed - get all the users from the database
+app.get("/feed", async (req, res) =>{
+    try{
+        const users = await User.find({});
+        if(users.length === 0){
+            res.send("User not found");
+        } else{
+            res.send(users);
+        }
+    } catch(err){
+        res.send("Something went wrong");
+    }
+});
 
 connectDB()
     .then(() => {
