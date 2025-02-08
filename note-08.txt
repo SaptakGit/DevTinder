@@ -1,0 +1,25 @@
+minLength: 4, // set minimum length 4 in Name field.
+
+maxLength: 50 // set maximum length 50 in Name field.
+
+lowercase: true, // stores the email always in lowercase
+
+required: true, // makes the field required
+
+unique: true, // makes the field unique, prevents duplicacy
+
+trim: true, // clear extra spaces in email
+
+min: 18, // set min value as 18
+
+validate(value){  //custom validation
+                if(!['male','female','others'].includes.value){
+                    throw new Error("Gender data is not Valid");
+                }
+            },
+the custom validation warks autometically at the time of creation, to work it at the time of
+update we have to pass 'runValidators: true' in 'option's in 'patch'
+
+default: "https://www.pnrao.com/wp-content/uploads/2023/06/dummy-user-male.jpg", // set default value
+
+ timestamps: true, // createdAT and UpdatedAt
