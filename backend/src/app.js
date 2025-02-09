@@ -6,6 +6,7 @@ const validator = require("validator");
 const { validateSignupData } = require("./utlis/validation");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
+const jwt = require("jsonwebtoken");
 
 app.use(express.json()); // middleware for converting incoming JSON data to JS Object
 app.use(cookieParser()); // middlewarre for reading cookies
@@ -52,10 +53,11 @@ app.post("/login", async (req,res) => {
 
         if(isLoginValid){
             // Create JWT Token
-
+            const token = await jwt.sign({ _id: user._id },"DEV@Tinder$0225");
+            //console.log(token);
 
             // Add the token to cookie and send the response back to the user
-            res.cookie("token", "sdsfhosfhdoisdfw98572985723vnsfjdhbb7vhsd4+6g4fg4");
+            res.cookie("token", token);
 
             res.send("Login Successfull!");
         }else{
@@ -68,10 +70,30 @@ app.post("/login", async (req,res) => {
 });
 
 // Profile
-app.get("/profile", (req,res)=>{
-    const cookies = req.cookies;
-    console.log(cookies);
-    res.send("Reading cookie");
+app.get("/profile", async (req,res)=>{
+    try{
+        const cookies = req.cookies;
+        const { token } = cookies;
+
+        if(!token){
+            throw new Error("Invalid Toekn");
+        }
+
+        // Validate my token
+        const decodecMessage = await jwt.verify(token,"DEV@Tinder$0225");
+        const { _id } = decodecMessage;
+        // console.log("Logged in user is: "+_id);
+
+        const user = await User.findById(_id);
+        if(!user){
+            throw new Error("User not found");
+        }
+
+        //console.log(decodecMessage);
+        res.send(user);
+    } catch (err){
+        res.send("ERROR: "+ err.message);
+    }
 })
 
 // find One user
