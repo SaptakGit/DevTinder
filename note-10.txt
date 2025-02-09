@@ -1,0 +1,17 @@
+Authentication:
+
+    User                                                   Server
+        ----------------- Login(Email, Pass) ----------->  validate,
+                                                           Wrap the JWT Token inside
+        <-------------------(token inside cookie) ---------- a cookie and send back
+        ---------------------Profile (with token)-------> Validated
+        <------------------------------------------------ Send data back
+
+
+    Express cookie: 
+    
+        Set Cookie: res.cookie(name, value [, options]);
+        Get Cookie: 
+                use cookie-parser (https://www.npmjs.com/package/cookie-parser)
+                npm i cookie-parser
+            Then use : req.cookies.name
