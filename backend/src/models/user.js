@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema(
                     throw new Error("Enter a Strong Password "+value)
                 }
             }
-            
         },
         age: {
             type: Number,

@@ -1,0 +1,6 @@
+Encrypt the password:
+    bcrypt (https://www.npmjs.com/package/bcrypt)
+    npm i bcrypt
+    bcrypt.hash(myPlaintextPassword, saltRounds).then(function(hash) {
+        // Store hash in your password DB.
+    });
