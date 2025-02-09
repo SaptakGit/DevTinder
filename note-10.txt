@@ -22,7 +22,15 @@ Authentication:
                 use cookie-parser (https://www.npmjs.com/package/cookie-parser) to parse to cookie
                 npm i cookie-parser
             Then use : req.cookies.name
+            Use cookie Expairy
 
     JWT Token:
         jsonwebtoken (https://www.npmjs.com/package/jsonwebtoken)
         npm i jsonwebtoken
+        Use token Expairy
+
+schemaMethods: This is a good practice to write model related functionality inside model as a schema mothod. It ofloads many task from main script.
+Such as here the JWT token creation. Since it is a user specific operation we can write it as a schema method. 
+Same thing for validating a password.
+It will make our life easier and keep the code clean.
+
