@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require("./config/database");
 const app = express();
 const User = require("./models/user");
+const validator = require("validator");
 const { validateSignupData } = require("./utlis/validation");
 const bcrypt = require("bcrypt");
 
@@ -11,7 +12,6 @@ app.use(express.json()); // middleware for converting incoming JSON data to JS O
 app.post("/signup", async (req,res) => {
     //console.log(req.body);
     try{
-
         // Validation of data 
         validateSignupData(req);
 
@@ -30,6 +30,32 @@ app.post("/signup", async (req,res) => {
         res.send("User added successfully!!");
     } catch (err){
         res.status(400).send("ERROR: "+ err.message);
+    }
+});
+
+// Login API
+app.post("/login", async (req,res) => {
+    try{
+        const { emailId, password } = req.body;
+        /*if(!validator.isEmail(emailId)){
+            throw new Error("Email is not valid");
+        }*/
+
+        const user = await User.findOne({emailId : emailId});
+        if(!user){
+            throw new Error("Invalid Credentials");
+        }
+
+        const isLoginValid = await bcrypt.compare(password, user.password);
+
+        if(isLoginValid){
+            res.send("Login Successfull!");
+        }else{
+            throw new Error("Invalid Credentials");
+        }
+
+    } catch(err){
+        res.send("ERROR: "+ err.message);
     }
 });
 
