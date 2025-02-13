@@ -1,2 +1,16 @@
 Schema Validation:
     schema.pre
+
+$or and $and in mongoose
+https://www.mongodb.com/docs/manual/reference/operator/query/
+
+Creating Index in our DB
+in mongoDb if a field is Unique then mongoDb automettically
+create an index on it.
+
+compound index:
+    https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
+    https://mongoosejs.com/docs/api/schema.html#Schema.prototype.index()
+    connectionRequestSchema.index({ fromUserID : 1, toUsreId : 1})
+
+ALLWAYS THINK ABOUT CORNER CASES

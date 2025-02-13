@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
         firstName: {
             type : String,
             required: true,
+            index: true,  // creating index
             minLength: 4, // set minimum length 4 in Name field.
             maxLength: 50 // set maximum length 50 in Name field.
         },

@@ -23,6 +23,11 @@ const connectionRequestSchema = new mongoose.Schema(
     }
 );
 
+
+// Compound Index
+connectionRequestSchema.index({ fromUserID : 1, toUsreId : 1})
+
+// Pre Method
 connectionRequestSchema.pre("save", function(next){
     const connectionRequest = this;
     // Check if the fromUserId is same as toUserId
