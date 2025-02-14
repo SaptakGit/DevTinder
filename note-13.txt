@@ -1,0 +1,10 @@
+Review Request API
+    /request/review/:status/:requestId
+    
+    saptak => elon
+    * Validate the status . status == 'accepted'/'rejected'
+    * is elon logged in user ? => loggedInId == toUserId
+    * is status 'interested' ? => status == 'interested'
+    * requestId should be valid
+
+    POST vs GET (Thought Process)
