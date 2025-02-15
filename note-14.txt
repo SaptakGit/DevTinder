@@ -1,0 +1,24 @@
+User Feed API
+    /user/Feed
+
+    ignored profile should not come
+    interested sent by own, those profile should not come
+    connected profile should not come
+    own profile should not come
+
+    Basically if these profiles are in the 'ConnectionRequest' Table by any status, they should not come to each other feed.
+
+    select in mongoose ->
+    const connectionRequests = await ConnectionRequest.find({
+            $or:[
+                {fromUserId: loggedInUser._id},
+                {toUserId: loggedInUser._id}
+            ],
+        }).select("fromUserId toUserId");
+
+    Using Set() to store unique id's which are already in my ConnectionRequest.
+
+    $nin => Not in
+    $ne => Not Equal To
+
+    Pagination:
