@@ -2,7 +2,13 @@ const express = require('express');
 const connectDB = require("./config/database");
 const app = express();
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
+// Setting Cors and Whitelisting the Domain Name for set coockie
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+}));
 app.use(express.json()); // middleware for converting incoming JSON data to JS Object
 app.use(cookieParser()); // middlewarre for reading cookies
 

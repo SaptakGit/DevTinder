@@ -4,6 +4,8 @@ Frontend Start:
     Style Css Library: Tailwind => https://v3.tailwindcss.com/docs/guides/vite
     Style Component Library: daisyUI => https://daisyui.com/docs/install/
     Routing: React Router => https://reactrouter.com/home
+    API Call: Axios => https://www.npmjs.com/package/axios
+    CORS: Use expres.cors() in backend => https://expressjs.com/en/resources/middleware/cors.html
 
     Steps:
         1) npm create vite@latest my-react-app -- --template react
@@ -36,3 +38,9 @@ Frontend Start:
         12) Create Children Routes
         13) Create Outlet in Body Component
                 Outlet: any children component will render over here.
+        14) Create Footer
+        15) Create Login Page
+        16) Use Axios to make API Call 
+            npm install axios
+        17) install npm install cors in backend
+        18) Setting Cors and Whitelisting the Domain Name for set coockie
