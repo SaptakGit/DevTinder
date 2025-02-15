@@ -1,9 +1,23 @@
 Frontend Start:
 
     React With Vite => https://vite.dev/guide/
+    Style Css Library: Tailwind => https://v3.tailwindcss.com/docs/guides/vite
+    Style Component Library: daisyUI => https://daisyui.com/docs/install/
+
     Steps:
         1) npm create vite@latest my-react-app -- --template react
         2) cd my-react-app
         3) npm install
         4) npm run dev
         5) Remove app.css
+        6) Using Tailwind for Vite + React
+            a) skip docs step-1.
+            b) run the following commands of step-2.
+                npm install -D tailwindcss@3 postcss autoprefixer
+                npx tailwindcss init -p
+            c) copy the step-3 code and paste it in tailwind.config.js.
+            d) remove all code from index.css and paste the code from step-4 in it.
+        7) Using DaisyUI for Tailwind
+            a) Make sure Node.js and Tailwind CSS are installed.
+            b) follow step-1 of daisyUI docs
+            c) follow step-2 of daisyUI docs
