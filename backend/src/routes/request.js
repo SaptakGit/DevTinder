@@ -16,7 +16,7 @@ requestRouter.post("/request/send/:status/:toUserId", userAuth, async (req, res)
         }
 
         // Check for the valid user id
-        const toUser = await User.fndById(toUserId);
+        const toUser = await User.findById(toUserId);
         if(!toUser){
             return res.status(404).json({message : "User not found"});
         }

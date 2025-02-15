@@ -8,3 +8,19 @@ Review Request API
     * requestId should be valid
 
     POST vs GET (Thought Process)
+
+
+Get all connection request for the logged in user API
+    /user/requests/received
+
+    Creating a referance in mongo schema (https://mongoosejs.com/docs/populate.html)
+        In Model:
+            using "ref"
+        In route:
+            const connectionRequests = await ConnectionRequest.find({
+                toUserId : loggedInUser._id,
+                status : 'interested'
+            }).populate("fromUserId", ["firstName", "lastName"]);
+
+            .populate("fromUserId", "firstName lastName") -> alternet way
+
