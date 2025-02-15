@@ -3,6 +3,7 @@ Frontend Start:
     React With Vite => https://vite.dev/guide/
     Style Css Library: Tailwind => https://v3.tailwindcss.com/docs/guides/vite
     Style Component Library: daisyUI => https://daisyui.com/docs/install/
+    Routing: React Router => https://reactrouter.com/home
 
     Steps:
         1) npm create vite@latest my-react-app -- --template react
@@ -21,3 +22,17 @@ Frontend Start:
             a) Make sure Node.js and Tailwind CSS are installed.
             b) follow step-1 of daisyUI docs
             c) follow step-2 of daisyUI docs
+        8) Create a NavBar.jsx separate Component file
+        9) Install React Router dom
+            npm i react-router-dom
+        10) Components:
+                Body
+                    NavBar
+                    Route=/ =>  Feed
+                    Route=/login => login
+                    Route=/connections => connections
+                    Route=/profile  =>  Profile
+        11) Create Main Route
+        12) Create Children Routes
+        13) Create Outlet in Body Component
+                Outlet: any children component will render over here.
