@@ -24,3 +24,18 @@ Get all connection request for the logged in user API
 
             .populate("fromUserId", "firstName lastName") -> alternet way
 
+            Chaning populate:
+                const connectionRequests = await ConnectionRequest.find({
+                    toUserId : loggedInUser._id,
+                    status : 'interested'
+                }).populate("fromUserId", USER_SAFE_DATA)
+                .populate("toUserId", USER_SAFE_DATA);
+
+
+Get all accepted connection API
+    /user/connections
+
+    find the loggedInId either in fromUserId OR toUserId with 'accepted' status
+
+    .toString() for string comparison, get the string inside an object.
+
