@@ -4,6 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+
 // Setting Cors and Whitelisting the Domain Name for set coockie
 app.use(cors({
     origin: "http://localhost:5173",
