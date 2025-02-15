@@ -1,5 +1,6 @@
     API Call: Axios => https://www.npmjs.com/package/axios
     CORS: Use expres.cors() in backend => https://expressjs.com/en/resources/middleware/cors.html
+    Redux: Use Redux => https://redux-toolkit.js.org/
 
         Steps Continue:
             15) Create Login Page
@@ -7,3 +8,15 @@
                     npm install axios
             17) install npm install cors in backend
             18) Setting Cors and Whitelisting the Domain Name for set coockie
+            19) a) Install Redux Toolkit
+                    npm install @reduxjs/toolkit
+                    npm install react-redux
+                b) configure store
+                c) Provider
+                d) create Slice & export
+                e) add reducer to store
+            20) useDispatch Hook to store the data in Redux Store
+            21) Redirecting to Feed After Login
+            22) Set value & photo in URL after Login
+            23) Create Constants.js and set BASE URL  
+            24) Create Component folder and move custom components
