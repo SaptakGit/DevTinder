@@ -457,6 +457,7 @@ This is a platform where developers can connect to each other make new projects,
 
         Express Router:
 
+
 ## EP 12:
     Schema Validation:
         schema.pre
@@ -474,6 +475,87 @@ This is a platform where developers can connect to each other make new projects,
         connectionRequestSchema.index({ fromUserID : 1, toUsreId : 1})
 
     ALLWAYS THINK ABOUT CORNER CASES
+
+
+
+## EP 13:
+    Review Request API
+        /request/review/:status/:requestId
+        
+        saptak => elon
+        * Validate the status . status == 'accepted'/'rejected'
+        * is elon logged in user ? => loggedInId == toUserId
+        * is status 'interested' ? => status == 'interested'
+        * requestId should be valid
+
+        POST vs GET (Thought Process)
+
+
+    Get all connection request for the logged in user API
+        /user/requests/received
+
+        Creating a referance in mongo schema (https://mongoosejs.com/docs/populate.html)
+            In Model:
+                using "ref"
+            In route:
+                const connectionRequests = await ConnectionRequest.find({
+                    toUserId : loggedInUser._id,
+                    status : 'interested'
+                }).populate("fromUserId", ["firstName", "lastName"]);
+
+                .populate("fromUserId", "firstName lastName") -> alternet way
+
+                Chaning populate:
+                    const connectionRequests = await ConnectionRequest.find({
+                        toUserId : loggedInUser._id,
+                        status : 'interested'
+                    }).populate("fromUserId", USER_SAFE_DATA)
+                    .populate("toUserId", USER_SAFE_DATA);
+
+
+    Get all accepted connection API
+        /user/connections
+
+        find the loggedInId either in fromUserId OR toUserId with 'accepted' status
+
+        .toString() for string comparison, get the string inside an object.
+
+
+
+## EP 14:
+    User Feed API
+        /user/Feed
+
+        ignored profile should not come
+        interested sent by own, those profile should not come
+        connected profile should not come
+        own profile should not come
+
+        Basically if these profiles are in the 'ConnectionRequest' Table by any status, they should not come to each other feed.
+
+        select in mongoose ->
+        const connectionRequests = await ConnectionRequest.find({
+                $or:[
+                    {fromUserId: loggedInUser._id},
+                    {toUserId: loggedInUser._id}
+                ],
+            }).select("fromUserId toUserId");
+
+        Using Set() to store unique id's which are already in my ConnectionRequest.
+
+        $nin => Not in
+        $ne => Not Equal To
+
+        Pagination:
+            /feed?page=1&limit=10 => 1st 10 user: 1 - 10 => .skip(0) & .limit(10)
+            /feed?page=2&limit=10 => 2nd 10 user: 11 - 20 => .skip(10) & .limit(10)
+            /feed?page=3&limit=10 => 3rd 10 user: 21 - 30 => .skip(20) & .limit(10)
+
+            skip formula = (page-1)*limit;
+        
+        parseInt() => converts Strings to Integer
+
+
 
 
   
