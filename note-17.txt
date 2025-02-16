@@ -5,3 +5,8 @@
             27) Update backed API response for token not found.
             28) Remove profile API call if user data is already in the store.
             29) Logout feature & login validation
+            30) Create Feed Feature 
+            31) Create Feed Card
+            32) Create Feed Slice
+            33) Create Profile & Updte profile
+            34) Use Toast for notification
