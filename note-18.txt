@@ -1,3 +1,5 @@
 Steps Continue:
             35) Create My Connections Page
             36) Create Connection Slice 
+            37) Create Connection-Requests Page
+            38) Create Connection Slice

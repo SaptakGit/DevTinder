@@ -2,36 +2,37 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { BASE_URL } from '../utlis/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { addConnections } from '../utlis/connectionSlice'
+import { addRequests } from '../utlis/requestSlice'
 
-const Connection = () => {
-    const connections = useSelector((store) => store.connections)
+const Requests = () => {
+    const requests = useSelector((store) => store.requests);
     const dispatch = useDispatch();
-    const fetchConnections = async () => {
-        try{
-            const res =  await axios.get(BASE_URL + "/user/connections", {withCredentials:true});
 
-            console.log(res?.data?.data);
-            dispatch(addConnections(res?.data?.data));
+
+    const fetchRequests = async () => {
+        try{
+            const res = await axios.get(BASE_URL + "/user/requests/received",{withCredentials:true});
+            dispatch(addRequests(res?.data?.data));
+
         } catch(err){
-            // Handle Error
+            // Error
         }
     }
 
     useEffect(() => {
-        fetchConnections();
+        fetchRequests();
     }, []);
 
-    if(!connections) return;
+    if(!requests) return;
 
-    if(connections.length === 0) return <h1>No Connections Found</h1>
+    if(requests.length === 0) return <h1>No Requests Found</h1>;
 
     return (
     <div className='text-center my-10'>
-        <h1 className='text-bold text-white text-3xl'>Connections</h1>
+        <h1 className='text-bold text-white text-3xl'>Connections Requests</h1>
 
-        {connections.map(connection => {
-            const {_id, firstName, lastName, photoUrl, age, gender, about} = connection;
+        {requests.map((request) => {
+            const {_id, firstName, lastName, photoUrl, age, gender, about} = request.fromUserId;
 
             
             return (
@@ -50,4 +51,4 @@ const Connection = () => {
     );
 }
 
-export default Connection
+export default Requests

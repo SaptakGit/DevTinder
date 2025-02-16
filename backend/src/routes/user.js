@@ -18,7 +18,7 @@ userRouter.get("/user/requests/received", userAuth, async (req, res) => {
 
         res.json({
             message:"Data fetched successfully", 
-            datda: connectionRequests
+            data: connectionRequests
         })
 
          
