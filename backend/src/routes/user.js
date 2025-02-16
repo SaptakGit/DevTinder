@@ -30,7 +30,7 @@ userRouter.get("/user/requests/received", userAuth, async (req, res) => {
 
 
 // Get all accepted connections
-userRouter.get("/user/connecetions", userAuth, async (req, res)=>{
+userRouter.get("/user/connections", userAuth, async (req, res)=>{
     try{
         const loggedInUser = req.user;
 
