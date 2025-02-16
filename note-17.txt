@@ -1,0 +1,7 @@
+
+        Steps Continue:
+            25) Call profile API on Body load
+            26) Check for authentication, if not found redirect to login page, else call profile api and update the store.
+            27) Update backed API response for token not found.
+            28) Remove profile API call if user data is already in the store.
+            
