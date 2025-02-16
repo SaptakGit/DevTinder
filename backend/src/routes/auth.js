@@ -34,6 +34,7 @@ authRouter.post("/signup", async (req,res) => {
 authRouter.post("/login", async (req,res) => {
     try{
         const { emailId, password } = req.body;
+        
         if(!validator.isEmail(emailId)){
             throw new Error("Email is not valid");
         }
@@ -59,7 +60,7 @@ authRouter.post("/login", async (req,res) => {
         }
 
     } catch(err){
-        res.send("ERROR: "+ err.message);
+        res.status(400).send("ERROR: "+ err.message);
     }
 });
 
