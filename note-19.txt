@@ -1,3 +1,9 @@
 Steps Continue:
             39) Create Ignore / Interested Functionality
             40) Modify feedSlice removeUserFromFeed Reducer
+            41) Remove User Profile after Interested/Ignore
+            42) Sign Up New User
+            43) Using the same Login Form for Signup
+            44) Modifiying SignUp API
+            45) Making Auto Login the User after Signup, set the cookie & redirected to Profile Page
+            46) Bug Fixes
