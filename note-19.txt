@@ -1,0 +1,3 @@
+Steps Continue:
+            39) Create Ignore / Interested Functionality
+            40) Modify feedSlice removeUserFromFeed Reducer
