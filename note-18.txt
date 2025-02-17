@@ -3,3 +3,5 @@ Steps Continue:
             36) Create Connection Slice 
             37) Create Connection-Requests Page
             38) Create Connection Slice
+            37) Create Accept / Reject Button on Connection Request Page
+            38) Make Accept / Reject Functionality in Connection Request
