@@ -556,7 +556,107 @@ This is a platform where developers can connect to each other make new projects,
         parseInt() => converts Strings to Integer
 
 
+# Frontend
 
+## EP 15:
+    React With Vite => https://vite.dev/guide/
+    Style Css Library: Tailwind => https://v3.tailwindcss.com/docs/guides/vite
+    Style Component Library: daisyUI => https://daisyui.com/docs/install/
+    Routing: React Router => https://reactrouter.com/home
+
+
+    Steps:
+        1) npm create vite@latest my-react-app -- --template react
+        2) cd my-react-app
+        3) npm install
+        4) npm run dev
+        5) Remove app.css
+        6) Using Tailwind for Vite + React
+            a) skip docs step-1.
+            b) run the following commands of step-2.
+                npm install -D tailwindcss@3 postcss autoprefixer
+                npx tailwindcss init -p
+            c) copy the step-3 code and paste it in tailwind.config.js.
+            d) remove all code from index.css and paste the code from step-4 in it.
+        7) Using DaisyUI for Tailwind
+            a) Make sure Node.js and Tailwind CSS are installed.
+            b) follow step-1 of daisyUI docs
+            c) follow step-2 of daisyUI docs
+        8) Create a NavBar.jsx separate Component file
+        9) Install React Router dom
+            npm i react-router-dom
+        10) Components:
+                Body
+                    NavBar
+                    Route=/ =>  Feed
+                    Route=/login => login
+                    Route=/connections => connections
+                    Route=/profile  =>  Profile
+        11) Create Main Route
+        12) Create Children Routes
+        13) Create Outlet in Body Component
+                Outlet: any children component will render over here.
+        14) Create Footer
+
+
+## EP 15:
+    API Call: Axios => https://www.npmjs.com/package/axios
+    CORS: Use expres.cors() in backend => https://expressjs.com/en/resources/middleware/cors.html
+    Redux: Use Redux => https://redux-toolkit.js.org/
+
+    Steps Continue:
+        15) Create Login Page
+        16) Use Axios to make API Call 
+                npm install axios
+        17) install npm install cors in backend
+        18) Setting Cors and Whitelisting the Domain Name for set coockie
+        19) a) Install Redux Toolkit
+                npm install @reduxjs/toolkit
+                npm install react-redux
+            b) configure store
+            c) Provider
+            d) create Slice & export
+            e) add reducer to store
+        20) useDispatch Hook to store the data in Redux Store
+        21) Redirecting to Feed After Login
+        22) Set value & photo in URL after Login
+        23) Create Constants.js and set BASE URL  
+        24) Create Component folder and move custom components
+
+
+## EP 17:
+    Steps Continue:
+        25) Call profile API on Body load
+        26) Check for authentication, if not found redirect to login page, else call profile api and update the store.
+        27) Update backed API response for token not found.
+        28) Remove profile API call if user data is already in the store.
+        29) Logout feature & login validation
+        30) Create Feed Feature 
+        31) Create Feed Card
+        32) Create Feed Slice
+        33) Create Profile & Updte profile
+        34) Use Toast for notification
+
+
+## EP 18:
+    Steps Continue:
+        35) Create My Connections Page
+        36) Create Connection Slice 
+        37) Create Connection-Requests Page
+        38) Create Connection Slice
+        37) Create Accept / Reject Button on Connection Request Page
+        38) Make Accept / Reject Functionality in Connection Request
+
+## EP 19:
+    Steps Continue:
+        39) Create Ignore / Interested Functionality
+        40) Modify feedSlice removeUserFromFeed Reducer
+        41) Remove User Profile after Interested/Ignore
+        42) Sign Up New User
+        43) Using the same Login Form for Signup
+        44) Modifiying SignUp API
+        45) Making Auto Login the User after Signup, set the cookie & redirected to Profile Page
+        46) Bug Fixes
 
   
 
