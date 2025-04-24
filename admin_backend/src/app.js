@@ -5,14 +5,21 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require('dotenv').config();
 
+// Setting Cors and Whitelisting the Domain Name for set coockie
+app.use(cors({
+    origin: "http://localhost:5175",
+    credentials: true,
+}));
 app.use(express.json());
 
 const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
+const userRouter = require("./routes/user");
 
 
-app.use("/admin", authRouter);
-app.use("/admin", profileRouter);
+app.use("/", authRouter);
+app.use("/", profileRouter);
+app.use("/", userRouter);
 
 
 connectDB()

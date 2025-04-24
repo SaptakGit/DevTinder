@@ -17,7 +17,7 @@ const userAuth = async (req, res, next) => {
             token = req.headers.authorization.split(" ")[1];
           } 
 
-        console.log(token);
+        //console.log(token);
         if(!token){
             // throw new Error("Invalid Token");
             //return res.status(401).send("Please Login!");

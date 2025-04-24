@@ -8,7 +8,7 @@ require('dotenv').config();
 
 // Setting Cors and Whitelisting the Domain Name for set coockie
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:3000",
     credentials: true,
 }));
 app.use(express.json()); // middleware for converting incoming JSON data to JS Object

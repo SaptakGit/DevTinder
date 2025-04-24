@@ -2,6 +2,7 @@
 /backend/node_modules
 /deployment/backend/node_modules
 /admin_backend/node_modules
+/admin-frontend/node_modules
 /dist
 .parcel-cache
 *.zip

@@ -63,6 +63,10 @@ const userSchema = new mongoose.Schema(
         },
         skills: {
             type: [String],
+        },
+        status: {
+            type: Number,
+            default: 1
         }
     },{ 
         timestamps: true, // createdAT and UpdatedAt
