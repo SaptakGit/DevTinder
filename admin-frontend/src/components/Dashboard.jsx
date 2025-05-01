@@ -32,7 +32,7 @@ const Dashboard = () => {
   <div className='flex flex-wrap ml-20 mt-10'>
     <div className='w-3/4'>
       <div className="flex flex-wrap gap-4">
-        {topUserListData.data && topUserListData.data.userList.map((user, index) => (<UserCard info={user} key={user._id} />))}
+        {topUserListData?.data && topUserListData?.data?.userList.map((user, index) => (<UserCard info={user} key={user._id} />))}
       </div>
     </div>
     <div className='w-1/4'>
