@@ -7,7 +7,7 @@ require('dotenv').config();
 
 // Setting Cors and Whitelisting the Domain Name for set coockie
 app.use(cors({
-    origin: "http://localhost:5175",
+    origin: "http://localhost:5173",
     credentials: true,
 }));
 app.use(express.json());
