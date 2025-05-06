@@ -5,25 +5,23 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Userlist from "./components/Userlist"
 import NavBar from "./components/Navbar"
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />
-  },
-  {
-    path: "/",
-    element: <><NavBar /><Body /></>,
-    children: [
-      {path: "/dashboard", element: <Dashboard />},
-      {path: "/userlist", element: <Userlist />}
-    ]
-  }
-])
-
 function App() {
 
-  
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />
+    },
+    {
+      path: "/",
+      element: <><NavBar /><Body /></>,
+      children: [
+        {path: "/dashboard", element: <Dashboard />},
+        {path: "/userlist", element: <Userlist />}
+      ]
+    }
+  ])
+
 
   return (
     <RouterProvider router={router}>
